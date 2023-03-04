@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: deamonset
+  labels:
+    mydeamon: learn
+spec:
+  selector:
+    matchLabels:
+      name: deamonset
+  template:
+    metadata:
+      labels:
+        name: deamonset
+    spec:
+      containers:
+      - name: myapp
+        image: praveen13/basicphpapp
+      nodeSelector:
+        worker: two
